@@ -11,21 +11,20 @@ public class TestaT1 {
 		List<Integer> entradas = new ArrayList<>();
 		String itemDeEntada = scan.nextLine().toUpperCase();
 		HeapSortArray hp = new HeapSortArray();
+		Heap h = new Heap();
 		int caso = 1;
 		
-		while(true) {
+		while(caso <= 30) {
 			if(itemDeEntada.contains("I") || itemDeEntada.contains("P")) {
 				if(itemDeEntada.contains("I")) {
 					entradas.add(Integer.parseInt(itemDeEntada.substring(2)));
+					h.montaHeap((ArrayList<Integer>) entradas); //ainda nao sei a melhor posicao pra "ordenar" entao coloquei em todos os lugares onde se adiciona um valor
 				} else if (itemDeEntada.contains("P")) {
 					if(entradas.isEmpty()) {
 						System.out.println("empty");
 					} else {
-						Integer[] array = entradas.toArray(new Integer[entradas.size()]);
-						hp.montaHeap(array); //troquei do executahs
-						entradas = new ArrayList<Integer>(Arrays.asList(array));
-						System.out.println(entradas.get(0)); // entradas.size()-1 
-						entradas.remove(entradas.get(0)); //entradas.size()-1
+						System.out.println(entradas.get(0)); // como ta no inicio printa o primeiro
+						entradas.remove(entradas.get(0)); // e remove o primeiro
 					}
 				}
 			} else {
@@ -34,6 +33,7 @@ public class TestaT1 {
 				} else {
 					if(itemDeEntada.matches("[0-9]* ")) { //verificador da pegadinha 1 numero e um espaco
 						entradas.add(Integer.parseInt(itemDeEntada.trim()));
+						h.montaHeap((ArrayList<Integer>) entradas); //ainda nao sei a melhor posicao pra "ordenar" entao coloquei em todos os lugares onde se adiciona um valor
 					}
 					else if (itemDeEntada.matches("([0-9]* [0-9]*)")) {
 						entradas.clear();
@@ -42,6 +42,7 @@ public class TestaT1 {
 					} 
 					else {
 						entradas.add(Integer.parseInt(itemDeEntada.trim()));
+						h.montaHeap((ArrayList<Integer>) entradas); //ainda nao sei a melhor posicao pra "ordenar" entao coloquei em todos os lugares onde se adiciona um valor
 					}
 				}
 			}

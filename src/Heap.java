@@ -5,44 +5,11 @@ public class Heap {
 	private int tamanho;
 	
 	public void montaHeap(ArrayList<Integer> array) {
-		int tamanho = array.size() - 1;
+		
+		tamanho = array.size() - 1;
 
 		for (int i = tamanho/2; i >= 0; i--) {
 			heapify(array, i);
-		}
-		
-		for (int i = tamanho - 1; i >= 0; i--) {
-			int temp = array.get(0);
-			array.set(0, array.get(i));
-			array.set(i, temp);
-			
-			heapify(array, i);
-		}
-		
-	}
-
-	public void heapify(ArrayList<Integer> array, int i) {
-		int maior = i;
-		int esquerda = 2 * i;
-		int direita = 2 * i + 1;
-		
-		if(esquerda <= tamanho && array.get(esquerda) > array.get(i)) {
-			System.out.println("mexeu esquerda");
-			maior = esquerda;
-		} else {
-			maior = i;
-		}
-		
-		if(direita <= tamanho && array.get(direita) > array.get(maior)) {
-			System.out.println("mexeu direita");
-			maior = direita;
-		}
-		
-		if(maior != i) {
-			System.out.println("troca?");
-			troca(array, i, maior);
-			heapify(array, maior);
-			System.out.println("trocou");
 		}
 	}
 	
@@ -51,6 +18,28 @@ public class Heap {
 		array.set(i, array.get(maior));
 		array.set(maior, aux);
 	}
+
+	public void heapify(ArrayList<Integer> array, int i) {
+		
+		int inicio = 2 * i;
+		int fim = 2 * i + 1;
+		int maior = i;
+		
+		if(inicio <= tamanho && array.get(inicio) > array.get(i)) {
+			maior = inicio;
+		} 
+		
+		if(fim <= tamanho && array.get(fim) > array.get(maior)) {
+			maior = fim;
+		}
+		
+		if(maior != i) {
+			troca(array, i, maior);
+			heapify(array, maior);
+		}
+	}
+	
+	
 	
 //	public void executaHeap(ArrayList<Integer> array) {
 //		montaHeap(array);
