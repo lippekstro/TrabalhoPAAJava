@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -9,12 +8,13 @@ public class TestaT1 {
 		
 		Scanner scan = new Scanner(System.in);
 		List<Integer> entradas = new ArrayList<>();
-		String itemDeEntada = scan.nextLine().toUpperCase();
 		HeapSortArray hp = new HeapSortArray();
 		Heap h = new Heap();
 		int caso = 1;
 		
 		while(caso <= 30) {
+			String itemDeEntada = scan.nextLine().toUpperCase();
+			
 			if(itemDeEntada.contains("I") || itemDeEntada.contains("P")) {
 				if(itemDeEntada.contains("I")) {
 					entradas.add(Integer.parseInt(itemDeEntada.substring(2)));
@@ -46,10 +46,6 @@ public class TestaT1 {
 					}
 				}
 			}
-			
-			itemDeEntada = scan.nextLine().toUpperCase();
 		}
-
 	}
-
 }

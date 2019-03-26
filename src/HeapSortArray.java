@@ -3,16 +3,12 @@ public class HeapSortArray {
 
 	private int tamanho;
 	
-	public void montaHeap(Integer[] array) {
-		
-		tamanho = array.length - 1;
+	public void montaHeap(Integer[] array, int tamanho) {
+		//tamanho = array.length - 1;
 		
 		for(int i = tamanho/2; i >= 0; i-- ) {
 			heapify(array, i);
 		}
-		
-		//mostraArray(array);
-		
 	}
 	
 	public void troca(Integer[] array, int x, int y) {
@@ -39,34 +35,32 @@ public class HeapSortArray {
 			troca(array, i, maior);
 			heapify(array, maior);
 		}
-		//System.out.println("");
-		//mostraArray(array);
 	}
 	
-	public void executaHS(Integer[] array) {
-		montaHeap(array);
-		
-		for(int i = array.length-1; i > 0; i--) {
-			troca(array, 0, i);
-			tamanho--;
-			//mostraArray(array);
-			heapify(array, 0);
-		}
-		//mostraArray(array);
-	}
-	
-	public void mostraArray(Integer[] array) {
-		for(int i = 0; i < array.length; i++) {
-			System.out.print(array[i] + " ");
-		}
-	}
-	
-	//remove elemento
-	public int removeMaior(Integer[] array) {
-		int removido = array[0];
-		array[0] = array[tamanho--];
-		heapify(array, 0);
-		return removido;
-	}
+//	public void executaHS(Integer[] array) {
+//		montaHeap(array, );
+//		
+//		for(int i = array.length-1; i > 0; i--) {
+//			troca(array, 0, i);
+//			tamanho--;
+//			//mostraArray(array);
+//			heapify(array, 0);
+//		}
+//		//mostraArray(array);
+//	}
+//	
+//	public void mostraArray(Integer[] array) {
+//		for(int i = 0; i < array.length; i++) {
+//			System.out.print(array[i] + " ");
+//		}
+//	}
+//	
+//	//remove elemento
+//	public int removeMaior(Integer[] array) {
+//		int removido = array[0];
+//		array[0] = array[tamanho--];
+//		heapify(array, 0);
+//		return removido;
+//	}
 	
 }
