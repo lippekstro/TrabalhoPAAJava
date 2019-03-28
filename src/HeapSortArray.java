@@ -15,8 +15,8 @@ public class HeapSortArray {
 	}
 
 	public void heapify(Integer[] array, int i, int tamanho) {
-		int inicio = 2 * i;
-		int fim = 2 * i + 1;
+		int inicio = 2 * i + 1;
+		int fim = 2 * i + 2;
 		int maior = i;
 		
 		if(inicio <= tamanho && array[inicio] > array[i]) {
